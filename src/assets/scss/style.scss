@@ -4,6 +4,7 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
 
 @import "functions";
 @import "variables";
@@ -46,6 +47,43 @@
 .brand-text-icon {
     font-size: 26px;
     font-weight: 500;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: $primary;
+
+    &:hover {
+        color: $primary;
+        text-decoration: none;
+    }
+}
+
+header {
+    border-bottom: 1px solid $gray-200;
+    width: 100%;
+    position: relative;
+
+    .navbar {
+        height: 80px;
+
+        .navbar-nav {
+            li.nav-item {
+                &.active {
+                    a.nav-link {
+                        color: $primary;
+                    }
+                }
+
+                a {
+                    &.nav-link {
+                        letter-spacing: 1px;
+                        color: $gray-900;
+                        padding-left: 1rem;
+                        padding-right: 1rem;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
