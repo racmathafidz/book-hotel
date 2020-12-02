@@ -16,6 +16,9 @@ export default function Button(props) {
 
     if (props.isDisabled || props.isLoading) {
         if (props.isDisabled) className.push("disabled")
+
+        //if receiving isLoading props, the <Button/> component will return <span> loading tag (no props.children)
+        //if receiving isDisabled props, the <Button/> component will return <span> tag but disabled
         return (
             <span className={className.join(" ")} style={props.style}>
                 {props.isLoading ? (
@@ -30,6 +33,7 @@ export default function Button(props) {
         )
     }
 
+    //if receiving props.type === "link", the <Button/> component will return <a> (for external) or <NavLink> (for internal)
     if (props.type === "link") {
         if(props.isExternal) {
             return (
@@ -57,6 +61,7 @@ export default function Button(props) {
         }
     }
 
+    //if receiving props.type === "button", the <Button/> component will return <button> tag with onClick props
     return (
         <button 
             className={className.join(" ")}
