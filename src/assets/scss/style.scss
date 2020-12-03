@@ -87,3 +87,14 @@ header {
         }
     }
 }
+
+@media (max-width: 576px) {
+    header {
+        border-bottom: 0px;
+
+        .navbar {
+            padding-top: 1rem;
+            height: auto;
+        }
+    }
+}
