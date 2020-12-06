@@ -80,6 +80,7 @@ Button.propTypes = {
     className: PropTypes.string,
     isDisabled: PropTypes.bool,
     isLoading: PropTypes.bool,
+    isPrimary: PropTypes.bool,
     isSmall: PropTypes.bool,
     isLarge: PropTypes.bool,
     isBlock: PropTypes.bool,
