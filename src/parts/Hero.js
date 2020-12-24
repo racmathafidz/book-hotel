@@ -11,12 +11,12 @@ import numberFormat from 'utils/formatNumber'
 
 export default function Hero(props) {
     
-    //onClick function. when clicked will scroll to the target section
+    //onClick function. when clicked will scroll to the target section (MostPicked)
     function showMostPicked() {
         window.scrollTo({
-            top: props.refMostPicked.current.offSetTop - 30,
+            top: props.refMostPicked.current.offsetTop - 30,
             behavior: "smooth"
-        })
+        });
     }
 
     return (
