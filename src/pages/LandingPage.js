@@ -1,4 +1,4 @@
-//For Rendering Component. Shortcut: rcc
+//Class, For Rendering Component. Shortcut: rcc
 import React, { Component } from 'react'
 
 import Header from 'parts/Header'
