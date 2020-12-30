@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 
 import './index.scss';
 
@@ -51,10 +51,10 @@ export default function Star({ className, value, height, width, spacing }) {
     )
 }
 
-Star.PropTypes = {
-    className : PropTypes.string,
-    value: PropTypes.number,
-    width: PropTypes.number,
-    height: PropTypes.number,
-    spacing: PropTypes.number
+Star.propTypes = {
+    className : propTypes.string,
+    value: propTypes.number,
+    width: propTypes.number,
+    height: propTypes.number,
+    spacing: propTypes.number
 }
