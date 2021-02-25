@@ -1,5 +1,6 @@
 //Class, For Rendering Component. Shortcut: rcc
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import Header from 'parts/Header'
 import Hero from 'parts/Hero'
@@ -7,9 +8,10 @@ import MostPicked from 'parts/MostPicked'
 import Categories from 'parts/Categories'
 import Testimony from 'parts/Testimony'
 import Footer from 'parts/Footer'
-import landingPageJson from 'json/landingPage'
 
-export default class LandingPage extends Component {
+import { fetchPage } from 'store/actions/page'
+
+class LandingPage extends Component {
 
     constructor(props){
         super(props);
@@ -20,19 +22,41 @@ export default class LandingPage extends Component {
     componentDidMount() {
         window.title = "Details Page"
         window.scrollTo(0, 0)
+
+        if(!this.props.page.landingPage){
+            this.props.fetchPage(
+                `${process.env.REACT_APP_HOST}/api/v1/member/landing-page`,
+                'landingPage'
+            )
+        }
     }
     
     render() {
+
+        const { page } = this.props
+
+        if(!page.hasOwnProperty("landingPage")){
+            return null
+        }
+
+        console.log(page)
+
         return (
             <>
                 <Header {...this.props}></Header>
-                <Hero refMostPicked={this.refMostPicked} data={landingPageJson.hero}/>
-                <MostPicked refMostPicked={this.refMostPicked} data={landingPageJson.mostPicked}/>
-                <Categories data={landingPageJson.categories}/>
-                <Testimony data={landingPageJson.testimonial}/>
+                <Hero refMostPicked={this.refMostPicked} data={page.landingPage.hero}/>
+                <MostPicked refMostPicked={this.refMostPicked} data={page.landingPage.mostPicked}/>
+                <Categories data={page.landingPage.category}/>
+                <Testimony data={page.landingPage.testimonial}/>
                 <Footer/>
             </>
         )
     }
 }
+
+const mapStateToProps = (state) => ({
+    page: state.page 
+})
+
+export default connect(mapStateToProps, { fetchPage })(LandingPage)
 
