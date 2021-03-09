@@ -25,7 +25,7 @@ class LandingPage extends Component {
 
         if(!this.props.page.landingPage){
             this.props.fetchPage(
-                `${process.env.REACT_APP_HOST}/api/v1/member/landing-page`,
+                `/landing-page`,
                 'landingPage'
             )
         }
@@ -38,8 +38,6 @@ class LandingPage extends Component {
         if(!page.hasOwnProperty("landingPage")){
             return null
         }
-
-        console.log(page)
 
         return (
             <>
